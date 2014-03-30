@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script>
+      $(function(){
+        $.stellar({
+          horizontalScrolling: false,
+          //verticalOffset: 40
+        });
+      });
+    </script>
+    <style>
+      .photo {
+        background-attachment: fixed;
+        background-position: 50% 0;
+        background-repeat: no-repeat;
+        background-size: cover !important;
+        height: 550px;
+        position: relative;
+      }
+      #taiwan {
+        background: url('http://farm8.staticflickr.com/7037/6837319114_323fe39491_b.jpg');
+      }
+      #vancouver {
+        background: url('https://farm6.staticflickr.com/5487/9484888462_f3298d349f_b.jpg');
+      }
+      #seattle {
+        background: url('http://farm7.staticflickr.com/6210/6151752691_be640cc0d5_b.jpg');
+      }
+      #london {
+        background: url('http://farm6.staticflickr.com/5465/7407925158_a8487f0323_b.jpg');
+      }
+    </style>
+  </head>
+  <body>
+    <div class="photo" id="taiwan" data-stellar-background-ratio="0.5">
+    </div>
+    <div class="photo" id="vancouver" data-stellar-background-ratio="0.5">
+    </div>
+    <div class="photo" id="seattle" data-stellar-background-ratio="0.5">
+    </div>
+    <div class="photo" id="london" data-stellar-background-ratio="0.5">
+    </div>
+  </body>
+</html>
