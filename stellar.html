@@ -5,10 +5,12 @@
     <script src="js/jquery.stellar.min.js"></script>
     <script>
       $(function(){
-        $.stellar({
-          horizontalScrolling: false,
-          //verticalOffset: 40
-        });
+        if(screen.width > 800) {
+          $.stellar({
+            horizontalScrolling: false,
+            //verticalOffset: 40
+          });
+        }
       });
     </script>
     <style>
