@@ -13,37 +13,64 @@
         }
       });
     </script>
+    <link href='http://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cabin+Sketch' rel='stylesheet' type='text/css'>
+
     <style>
+      body {
+        margin: 0 auto;
+      }
+
       .photo {
         background-attachment: fixed;
         background-position: 50% 0;
         background-repeat: no-repeat;
         background-size: cover !important;
-        height: 550px;
+        height: 350px;
         position: relative;
       }
-      #taiwan {
-        background: url('http://farm8.staticflickr.com/7037/6837319114_323fe39491_b.jpg');
+
+      .photo > div {
+        line-height: 350px;
+        text-align: center;
+        color: white;
+        font-size: 10em;
+        /*font-family: 'Londrina Shadow', cursive;*/
+        font-family: 'Cabin Sketch', cursive;
+
       }
+
+      #taiwan {
+        background: url('http://farm3.staticflickr.com/2592/13040917453_0918d7c24f_b.jpg');
+      }
+
       #vancouver {
         background: url('https://farm6.staticflickr.com/5487/9484888462_f3298d349f_b.jpg');
       }
+
       #seattle {
         background: url('http://farm7.staticflickr.com/6210/6151752691_be640cc0d5_b.jpg');
       }
+
       #london {
         background: url('http://farm6.staticflickr.com/5465/7407925158_a8487f0323_b.jpg');
       }
+
     </style>
+
   </head>
   <body>
-    <div class="photo" id="taiwan" data-stellar-background-ratio="0.5">
+    <div class="photo" data-stellar-background-ratio="0.5" id="taiwan">
+      <div>Taiwan</div>
     </div>
-    <div class="photo" id="vancouver" data-stellar-background-ratio="0.5">
+    <div class="photo" data-stellar-background-ratio="0.5" id="vancouver">
+      <div>Vancouver</div>
     </div>
-    <div class="photo" id="seattle" data-stellar-background-ratio="0.5">
+    <div class="photo" data-stellar-background-ratio="0.5" id="seattle">
+      <div>Seattle</div>
     </div>
-    <div class="photo" id="london" data-stellar-background-ratio="0.5">
+    <div class="photo" data-stellar-background-ratio="0.5" id="london">
+      <div>London</div>
     </div>
   </body>
 </html>
