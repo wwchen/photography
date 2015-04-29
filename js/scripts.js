@@ -8,23 +8,28 @@ $(function() {
   /* affix the navbar after scroll below header */
   $('#nav').affix({
     offset: {
-      top: $('header').height() - $('#nav').height() - 1
+      top: $('header').height()
     }
   });	
 
   /* smooth scrolling for nav sections */
   $('#nav .navbar-nav li>a').click( function(e) {
     e.preventDefault();
-    var link = $(this).attr('href');
+    var anchorOffset = $($(this).attr('href')).offset().top;
+    var windowOffset = $(window).scrollTop();
+    var navHeight = $('#nav').height();
+    var headerHeight = $('header').height();
+
+    console.log(anchorOffset + " " + windowOffset + " " + navHeight + " " + headerHeight);
+
     var posi = 0;
-    var headerOffset = $('header').height() - $(window).scrollTop();
-    if (headerOffset > 0) {
-      posi = headerOffset - $("#nav").height();
-      posi = $(link).offset().top - $("#nav").height();
+    if (windowOffset < headerHeight) {
+      // we haven't scroll past the header
+      posi = anchorOffset - navHeight;
       console.log("there");
     }
     else {
-      posi = $(link).offset().top - $("#nav").height();
+      posi = anchorOffset - navHeight;
       console.log("here");
     }
     console.log(posi);
