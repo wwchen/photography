@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   var sections = [
     { 
       city: "Vancouver",
@@ -52,31 +52,24 @@ $(document).ready(function() {
 
   // build a parallax section for every city
   $.each(sections, function(i, section) {
-    console.log(section.city);
-    var wrapper    = $("<div>", { "class": "photo" });
-    var background = $("<img>", { "src": section.background, "data-stellar-ratio": 0.5 });
-    var title      = $("<div>", { "class": "title" }).html(section.city);
-    if (section.photos) {
-      setupSwipebox(title, section.photos);
-    }
-    background.appendTo(wrapper);
+    var wrapper = $("<div>");
+    var title   = $("<div>").html(section.city);
+    var size    = '300px';
+    wrapper.css({
+      'background': 'url("' + section.background + '") no-repeat center center fixed',
+      'background-size': 'cover',
+      'min-width': '500px',
+      'height': size
+    });
+    title.css({
+      'line-height': size,
+      'text-align': 'center',
+      'font-size': '100px',
+      'font-family': '"Cabin Sketch", cursive',
+      'color': 'orange'
+    });
     title.appendTo(wrapper);
-    wrapper.appendTo( $('body') );
+    wrapper.appendTo( $('#travelfeed') );
   });
 
-  // initialize swipebox gallery as a click event to the given element
-  function setupSwipebox(title, photos) {
-    title.click( function(e) {
-      $.swipebox(photos);
-    });
-  }
-
-  // only initialize parallax effect if we're on a desktop
-  if(screen.width > 800) {
-    $.stellar({
-      horizontalScrolling: false,
-      positionProperty: 'transform',
-      hideDistantElements: false
-    });
-  }
 });

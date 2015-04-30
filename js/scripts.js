@@ -44,5 +44,4 @@ $(function() {
     template: '<a href="{{link}}"><img src="{{image}}"></a>'
   });
   feed.run();
-
 });
