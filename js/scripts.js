@@ -8,31 +8,31 @@ $(function() {
   /* affix the navbar after scroll below header */
   $('#nav').affix({
     offset: {
-      top: $('header').height()
+      top: $('#nav').offset().top
     }
   });	
+
+  $('#nav').on('affix.bs.affix affix-top.bs.affix', function(e) {
+    var height;
+    switch (e.type) {
+      case 'affix':
+        height = $('#nav').height();
+        break;
+      case 'affix-top':
+        height = 0;
+        break;
+    }
+    $('#affix-spacer').height(height);
+  });
 
   /* smooth scrolling for nav sections */
   $('#nav .navbar-nav li>a').click( function(e) {
     e.preventDefault();
-    var anchorOffset = $($(this).attr('href')).offset().top;
-    var windowOffset = $(window).scrollTop();
+    var section = $(this).attr('href');
+    var sectionOffset = $(section).offset().top;
     var navHeight = $('#nav').height();
-    var headerHeight = $('header').height();
 
-    console.log(anchorOffset + " " + windowOffset + " " + navHeight + " " + headerHeight);
-
-    var posi = 0;
-    if (windowOffset < headerHeight) {
-      // we haven't scroll past the header
-      posi = anchorOffset - navHeight;
-      console.log("there");
-    }
-    else {
-      posi = anchorOffset - navHeight;
-      console.log("here");
-    }
-    console.log(posi);
+    var posi = sectionOffset - navHeight;
     $('html, body').animate({scrollTop: posi}, 700);
   })
 
