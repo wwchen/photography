@@ -35,10 +35,14 @@ $(function() {
     var sectionOffset = $(section).offset().top;
     var navHeight = getAffixedNavbarHeight();
 
-    var posi = sectionOffset - navHeight;
+    var posi = sectionOffset - navHeight + 1;
 
-    if (isMobile() && isNavbarFixed()) {
-      posi -= $('.navbar-collapse.in').height();
+    if (isMobile()) {
+      if (isNavbarFixed()) {
+        posi -= $('.navbar-collapse.in').height();
+      }
+      /* collapse the navbar after clicking */
+      $('.navbar-toggle').click();
     }
 
     $('html, body').animate({scrollTop: posi}, 700);
